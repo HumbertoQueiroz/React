@@ -1,12 +1,17 @@
-import { useState } from 'react'
+/*import {Post} from './Post'*/
+import {Button} from "./Post"
 
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export function App() {
   return (
-    <h1>Hello word</h1>
+    <div>
+      <Button />
+      <Button />
+      <Button />
+      <Button />
+      <Button />
+    </div>
   )
 }
 
-export default App
+
