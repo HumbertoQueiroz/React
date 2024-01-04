@@ -25,20 +25,20 @@ Ao receber uma requisição a aplicação back-end vai acessar o banco de dados 
 *Ter node.js instalado*
 
 Acessar através do terminal a pasta que o projeto vai ser guardado<br>
-Executar: 'npm create vite@latest'<br>
-Depois: 'y'<br>
+Executar: `npm create vite@latest`<br>
+Depois: `y`<br>
 Informar o nome do projeto:'name'<br>
-Selecionar a bliblioteca: 'react'<br>
-Selecionar se vai usar Typescrpt ou não: 'react'<br>
+Selecionar a bliblioteca: `react`<br>
+Selecionar se vai usar Typescrpt ou não: `react`<br>
 Pronto, projeto criado com a estrutura react.<br><br>
 
-Abrir VS Code na pasta e executar: 'npm i'<br>
+Abrir VS Code na pasta e executar: `npm i`<br>
 Para instalar as dependencias do projeto<br><br>
 
 Depois com a pasta selecionada executar 'npm run dev'<br>
 Para ver a palicação rodando no localhost (testar e ver a versão do projeto rodando).<br><br>
 
-Mais informações: (site guia do Vite) [https://vitejs.dev/guide/]
+Mais informações: [site guia do Vite] (https://vitejs.dev/guide/)
 
 
 ## Conceitos React
