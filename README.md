@@ -55,7 +55,25 @@ Um componente se parece com uma tag, exemplo uma tag img, já a propriedade se p
 O computador sempre tem o comportamente de exibir a imagem, mas muda a imagem exibida dependendo do conteudo do scr.<br>
 Componetes e propriedades tem a mesma lógica, um componente post por exemplo sempre vai criar um parágrafo com conteúdo e autor, o que muda são os valores passados para as propriedades autor e conteúdo toda vez que o componente pe chamado.
 
-### Estilização é importada nos componestes e não no html
-Os estilos são importados `diretamente` nos componentes
+### Estilização é importada nos componestes e não no html geral/inicial
+Os estilos são importados `diretamente` nos componentes<br>
+
+**Elementos (funções que constroem/retornam html) devem iniciar nome com letra Maiúscula para não confundir com as tags nativas html**
+
+>A class vai ser substituida por className no React.
+
 #### CSS Models
- 
+>Obs.: O Vite já configura para dar suporte a CSS Model nativamente, não precisa de configurações a mais
+
+Usado para que o css seja aplicado apenas para o elemento específico, não gerando conflito com outros css.<br><br>
+
+O CSS vai ter formato `.module.css`, nas tag vai usar `className` e vai importar o arquivo .module.css direto no componete .jsx <br><br>
+
+Dentro do .module.css vai criar as classes e dentro dela as estilizações normalmente <br><br>
+
+Depois importar o arquivo .module.css dentro do componente .jsx e dentro da função construtora de html, no html que vai aplicar o estilo chamar `className` e aplicar o estilo usando {} <br><br>
+
+
+A importação é feita: `import styles from './Exemplo.module.css` <br><br>
+
+Para chamar a class: `<header className={styles.header}>`
