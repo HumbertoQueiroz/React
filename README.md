@@ -38,13 +38,15 @@ Para instalar as dependencias do projeto<br><br>
 Depois com a pasta selecionada executar 'npm run dev'<br>
 Para ver a palicação rodando no localhost (testar e ver a versão do projeto rodando).<br><br>
 
-Mais informações: https://vitejs.dev/guide/
+Mais informações: (site guia do Vite) [https://vitejs.dev/guide/]
 
 
 ## Conceitos React
 
 ### Componetes
-Componentes são partes de códigos (funções que retonan código HTML) que podem ser reutilizados na aplicação, facilitando o desenvolvimento, por exemplo uma página que tem vários botões, pode ser criado um componente chamado botão com todo seu formato e estilização e toda vez que a página tiver um botão chamasse o componente, sem precisar reescrever o código.
+Componentes são partes de códigos (funções que retonan código HTML) que podem ser reutilizados na aplicação, facilitando o desenvolvimento, por exemplo uma página que tem vários botões, pode ser criado um componente chamado botão com todo seu formato e estilização e toda vez que a página tiver um botão chamasse o componente, sem precisar reescrever o código.<br><br>
+
+**Padrão de nomenclatura de componentes no React (puro) é iniciando com letra Maiúscula**
 
 ### Propriedades
 Propriedades são informações que podem ser passadas para um componente, fazendo com que possa ser utilizado o mesmo componentes várias vezes mas que o conteúdo daquela propriedade seja exibido de forma diferente em cada um.<br>
@@ -53,3 +55,7 @@ Um componente se parece com uma tag, exemplo uma tag img, já a propriedade se p
 O computador sempre tem o comportamente de exibir a imagem, mas muda a imagem exibida dependendo do conteudo do scr.<br>
 Componetes e propriedades tem a mesma lógica, um componente post por exemplo sempre vai criar um parágrafo com conteúdo e autor, o que muda são os valores passados para as propriedades autor e conteúdo toda vez que o componente pe chamado.
 
+### Estilização é importada nos componestes e não no html
+Os estilos são importados `diretamente` nos componentes
+#### CSS Models
+ 
