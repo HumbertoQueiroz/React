@@ -29,5 +29,21 @@ Não ordenada:
 * item
 
 ## Imagem
-Usar ! depois dentro dos [] vai o nome da imagem (não é exibido, apenas para acessibilidade), dar espaço e depois dentros dos () URL da imagem
+Usar ! depois dentro dos [] vai o nome da imagem (não é exibido, apenas para acessibilidade), dar espaço e depois dentros dos () URL da imagem<br>
 ![Nome da imagem](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJVItv_MY1ITsamXwxFTieMpN3d-c5B7J110NWIOKNftbHtrDheh8h30mgRzxsWbPqI00&usqp=CAU)
+
+
+## Código
+### Uma paçavar em Código
+Adicionar \``no inicio e no final` do código
+
+### Código em linha
+Adicionar três\`\`\` de depois <br>
+```Linha em código```
+
+### Codigo em várias linguagens
+Usar três (~) e colocado o nome da linguagem e no final usar três de novo exemplo: `~~~javascript linha de codigo ~~~`<br>
+~~~javascript linha de código JS~~~
+~~~html linha de código html~~~
+~~~php linha de código php~~~
+
