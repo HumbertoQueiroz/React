@@ -42,7 +42,7 @@ Adicionar três\`\`\` de depois <br>
 ```Linha em código```
 
 ### Codigo em várias linguagens
-Usar três (~) e colocado o nome da linguagem e no final usar três de novo exemplo: `~~~javascript linha de codigo ~~~`<br>
+Usar três (~) `~~~javascript` e colocado o nome da linguagem dar um `enter` digitar o texto, dar um `enter` e no final usar três(~) `~~~` de novo exemplo: `~~~javascript linha de codigo ~~~`<br>
 ~~~javascript
 ~~~javascript
 linha de código JS
