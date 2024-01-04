@@ -43,7 +43,19 @@ Adicionar três\`\`\` de depois <br>
 
 ### Codigo em várias linguagens
 Usar três (~) e colocado o nome da linguagem e no final usar três de novo exemplo: `~~~javascript linha de codigo ~~~`<br>
-~~~javascript linha de código JS~~~
-~~~html linha de código html~~~
-~~~php linha de código php~~~
+~~~javascript
+~~~javascript
+linha de código JS
+\~~~
+~~~
+~~~html
+ ~~~html
+ linha de código html
+ \~~~
+ ~~~
+~~~php
+~~~php
+linha de código php
+\~~~
+~~~
 
