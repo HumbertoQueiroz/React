@@ -1,16 +1,16 @@
 # Guia de escritá com Markdown
 
-(Site com guia Markdowns) [https://docs.pipz.com/central-de-ajuda/learning-center/guia-basico-de-markdown#open]
+[Site com guia Markdowns] (https://docs.pipz.com/central-de-ajuda/learning-center/guia-basico-de-markdown#open)
 
 
 ## Titulos
 Usar # para titulos e ir adicinando para subtitulos (#, ##, ###, ####)
 
 ## Negrito
-Usar dois **no inicio e dois** no final colados ao texto
+Usar dois ** **no inicio e dois** no final colados ao texto
 
 ## Itálico
-Usar um *no inicio e um* no final colados ao texto
+Usar um * *no inicio e um* no final colados ao texto
 
 ## Citação
 Usar um > antes do texto
@@ -18,7 +18,7 @@ Usar um > antes do texto
 
 ## Link de site
 Usar () e dentro colocar p texto que será exibido, dar um espaço e depois usar [] e colocar o link dentro
-(texto que será exibido do link) [https://exemplo.com/]
+[texto que será exibido do link] (https://exemplo.com/)
 
 ## Lista
 Numérica usar ponto e espaço:
