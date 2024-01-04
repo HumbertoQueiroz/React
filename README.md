@@ -38,7 +38,7 @@ Para instalar as dependencias do projeto<br><br>
 Depois com a pasta selecionada executar 'npm run dev'<br>
 Para ver a palicação rodando no localhost (testar e ver a versão do projeto rodando).<br><br>
 
-Mais informações: [site guia do Vite] (https://vitejs.dev/guide/)
+Mais informações: [site guia do Vite](https://vitejs.dev/guide/)
 
 
 ## Conceitos React
