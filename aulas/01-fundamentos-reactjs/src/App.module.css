@@ -8,3 +8,17 @@
   gap: 2rem;
   align-items: flex-start;
 }
+
+
+@media (max-width:  768px){
+  /* Usado para passar valores padrão para o html */
+  html{
+    /* Aqui estamos definindo um valor menor para o 'rem' que por padrão é 16px
+    Mas usar porcentagem para que quando o usuário usar uma font maior ou escala
+    o sistema continuar aplicando*/
+    font-size: 87.5%;
+  }
+  .wrapper{
+    grid-template-columns: 1fr ;
+  }
+}

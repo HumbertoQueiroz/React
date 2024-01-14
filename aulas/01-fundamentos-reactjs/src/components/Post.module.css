@@ -32,14 +32,6 @@ o segundo elemento tem um anterior */
   justify-content: center;
 }
 
-.author > img{
-  width: calc(3rem + 12px);
-  height: calc(3rem + 12px);
-  border-radius: 8px;
-  border: 4px solid var(--gray-800);
-  outline: 2px solid var(--green-500);
-}
-
 .author > div > strong{
   color: var(--green-100);
   line-height: 1.6;
