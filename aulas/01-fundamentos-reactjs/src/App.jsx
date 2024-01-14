@@ -1,11 +1,14 @@
 /* Importação dos componentes */
-import {Post} from "./Post"
+import {Post} from "./components/Post"
 import {Header} from './components/Header'
+import { Sidebar } from "./components/Sidebar";
+
+
 
 /* Importação dos estilos CSS*/
 import styles from './App.module.css';
 import './global.css';
-import { Sidebar } from "./components/Sidebar";
+
 
 export function App() {
   return (
@@ -16,9 +19,11 @@ export function App() {
         <Sidebar />
         <main>
         <Post
-        autor="Humberto Caio"
-        content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt mollitia voluptates officiis aut. Vitae architecto reprehenderit, ullam repudiandae sit, quo odio minus voluptatum consectetur provident nulla corporis totam tempore mollitia"
+        autor="Humberto"
+        descritionAutor="Web Developer"
+        publication="Públicado há 1h"
         />
+      
         <Post
           autor="John Doe"
         />

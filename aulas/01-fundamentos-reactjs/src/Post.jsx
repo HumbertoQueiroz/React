@@ -1,4 +1,4 @@
-//Uma função construtora de html pode receber parametros, este caso 'props',
+//Uma função construtora de html pode receber parametros, neste caso 'props',
 //Esses paremetros (pode ser um ou mais) são recebidos em formado de Objeto
 //Exemplo:  props: {autor:"", content:"",}
 
