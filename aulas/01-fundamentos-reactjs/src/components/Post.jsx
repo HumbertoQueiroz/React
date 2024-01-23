@@ -2,10 +2,29 @@ import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from  'date-fns/locale/pt-BR';
 import { Comment } from "./Comment";
 import { Avatar } from "./Avatar";
+import { useState } from 'react';
 
 import styles from './Post.module.css';
 
+
 export function Post({author, publishedAt, content}) {
+
+  /* useStates sempre retorna um array com duas posições
+    Na primeira é o status (valor) inicial da variável. 
+    No segundo parametro recebe uma função para alterar o valor da variável.
+    Como sabemos o retorno, pode ser destrutuado para duas variáveis 
+    Exemplo `const [comments, setComments] = useState ([1,2])` 
+    **Deve ser usado a própria função nativa do React para alterar**, pois além 
+    dela alterar o valor da variável, ela também informar ao React que aquele 
+    componente foi alterado e que deve ser renderizado novamente na tela*/
+    const [comments, setComments] = useState (
+      [
+        1,
+        2,
+      ]
+    )
+
+
 
   /* Método mais trabalhoso
   const publishedAtDateFormatted= new Intl.DateTimeFormat('pt-BR', {
@@ -24,6 +43,22 @@ export function Post({author, publishedAt, content}) {
     locale: ptBR,
     addSuffix: true
   });
+
+  function handleCreateNewComment(){
+    /* Usa `event.preventDefault para evitar comportamento padrão do submit de 
+    ir para outra página de forma automática */
+    event.preventDefault();
+    
+    /* Função nativa do useStates de alteração da variável
+    Imutabilidade: Essa fução recebe o valor antigo como a primeira posição, 
+    mais o novo valor da variável na segunda posição, não apenas o valor alterado.
+    Para isso usamos o spread operator `...` para pegar/copiar o valor antigo 
+    na primeira posição e na segunda posição passamos a posição final mais um 
+    com o `.length+1`
+
+    */
+    setComments([...comments, comments.length+1])
+  }
 
   return (
     <article className={styles.post}>
@@ -49,7 +84,7 @@ export function Post({author, publishedAt, content}) {
 
       </div>
 
-      <from className={styles.commentForm}>
+      <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
         <textarea
           placeholder='Deixe seu comentário!'
@@ -57,11 +92,11 @@ export function Post({author, publishedAt, content}) {
         <footer>
           <button type="submit">Publicar</button>
         </footer>
-      </from>
+      </form>
       <div className={styles.commentList}>
-        <Comment />
-        <Comment />
-        <Comment />
+        {comments.map(comment =>{
+          return <Comment />
+          })}
       </div>
 
 

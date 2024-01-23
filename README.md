@@ -86,8 +86,39 @@ Para importar formato da linguagem para pt-br: `import ptBR from  'date-fns/loca
 
 Exemplo de função para formatar data: `const dataFormatada=format(exemploData, "dd 'de' LLLL 'às' HH:mm'h'", {locale: ptBR});`<br> <br>
 
-Exemplo de função que conta o tempo da data recebida para agora: `const publishedAtDateRelativeToNow=formatDistanceToNow(publishedAt, {locale: ptBR, addSuffix: true});`
-
+Exemplo de função que conta o tempo da data recebida para agora: `const publishedAtDateRelativeToNow=formatDistanceToNow(publishedAt, {locale: ptBR, addSuffix: true});`<br> <br>
 
 
 Documentação: [site da documentação biclioteca date-fns](https://date-fns.org/docs/Getting-Started)
+
+### useStates
+O `React` usa um modelo de controle de renderização, onde ele deve ser avisado que valores foram mudados para que ele altere o que esta sendo exibido em tela.<br><br>
+
+`useStates` nada mais é que variáveis do componente que devem ser monitoradas<br><br>
+
+Primeiro é necessário importar `import { useState } from 'react';` <br><br>
+
+O método`useStates` sempre **recebe como parámetro** o *valor inicial da variável*.<br><br>
+
+O método `useStates` sempre **retorna** um array com *duas posições*.<br>
+Na primeira retorna o valor (status) inicial da variável.<br>
+Na segunda retorna uma função para alterar o valor da variável.<br><br>
+
+**Sempre deve ser usado a própria função nativa do useStates para alterar o valor da variável**<br>
+Pois além  dela alterar o valor da variável, ela também *informa ao React que o componente que tem a variável alterada deve ser renderizado novamente na tela*<br><br>
+
+Como sabemos o tipo de retorno, uma lista com duas posições: [valor inicial, função de alteração]<br>
+O retorno pode ser deestruturado para duas variáveis, o valor inicial (no exemplo comments) que vai ser usado para chamado e exibir o valor da variável na tela e a função de alteração do valor da variável que será chamada quando precisar alterar o valor (no exemplo setComments) <br><br>
+
+Exemplo `const [comments, setComments] = useState ([1,2])` <br><br>
+
+#### Função set (de alteração da variável) nativa do useStates
+Essa função recebe uma array como parametro com duas posições.<br>
+O valor antigo como a primeira posição e o novo valor da variável na segunda posição.<br><br>
+
+Para isso usamos o spread operator `...` para pegar/copiar o valor antigo na primeira posição e na segunda posição passamos a posição final mais 1 com o `.length+1`.<br><br>
+
+Exemplo: `setComments([...comments, comments.length+1])`<br>
+
+##### Imutabilidade
+Essa fução **retorna uma *nova variável* com novo valor**, ela **não** altera a anterior e simplesmente adicona o novo valor, garantindo que não ocorra erros no programa por alterar o valor de uma variável que outro programa pode acabar usando com o valor alterado (incorreto).
