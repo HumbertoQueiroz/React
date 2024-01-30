@@ -3,7 +3,7 @@ import styles from './Comment.module.css'
 import { Avatar } from './Avatar'
 import {Trash, ThumbsUp} from "@phosphor-icons/react"
 
-export function Comment(){
+export function Comment({content}){
   return (
     <div className={styles.comment}>
       <Avatar hasBorder={false} src="https://avatars.githubusercontent.com/u/90359980?s=400&u=5d13a4166f9f4e41695c50e4e68f9fa68b435408&v=4" />
@@ -18,7 +18,7 @@ export function Comment(){
               <Trash size={24} />
             </button>
           </header>
-          <p>Muito bom Devon, parabéns!! 👏👏</p>
+          <p>{content}</p>
         <footer>
           <button>
             <ThumbsUp/>

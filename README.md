@@ -116,9 +116,14 @@ Exemplo `const [comments, setComments] = useState ([1,2])` <br><br>
 Essa função recebe uma array como parametro com duas posições.<br>
 O valor antigo como a primeira posição e o novo valor da variável na segunda posição.<br><br>
 
-Para isso usamos o spread operator `...` para pegar/copiar o valor antigo na primeira posição e na segunda posição passamos a posição final mais 1 com o `.length+1`.<br><br>
+Para isso usamos o spread operator `...` para pegar/copiar o valor antigo na primeira posição e na segunda posição passamos a posição final mais 1 com o `.length+1`.<br>
+Usado o `.length1` como exemplo, normalmnete se passa a variável com o novo valor, ou o próprio novo valor<br><br>
 
 Exemplo: `setComments([...comments, comments.length+1])`<br>
 
 ##### Imutabilidade
 Essa fução **retorna uma *nova variável* com novo valor**, ela **não** altera a anterior e simplesmente adicona o novo valor, garantindo que não ocorra erros no programa por alterar o valor de uma variável que outro programa pode acabar usando com o valor alterado (incorreto).
+
+
+### Programação Declarativa
+Quais as condições para ter o resultado final.<br><br>
