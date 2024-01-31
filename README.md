@@ -40,7 +40,6 @@ Para ver a palicação rodando no localhost (testar e ver a versão do projeto r
 
 Mais informações: [site guia do Vite](https://vitejs.dev/guide/)
 
-
 ## Conceitos React
 
 ### Componetes
@@ -113,7 +112,8 @@ O retorno pode ser deestruturado para duas variáveis, o valor inicial (no exemp
 Exemplo `const [comments, setComments] = useState ([1,2])` <br><br>
 
 #### Função set (de alteração da variável) nativa do useStates
-Essa função recebe uma array como parametro com duas posições.<br>
+Essa função altera o valor do estado atual (useStates).
+Pode ser passado diretamente o novo valor ou pode ser usado desconstrução  recebe uma array como parametro com duas posições.<br>
 O valor antigo como a primeira posição e o novo valor da variável na segunda posição.<br><br>
 
 Para isso usamos o spread operator `...` para pegar/copiar o valor antigo na primeira posição e na segunda posição passamos a posição final mais 1 com o `.length+1`.<br>
@@ -121,9 +121,28 @@ Usado o `.length1` como exemplo, normalmnete se passa a variável com o novo val
 
 Exemplo: `setComments([...comments, comments.length+1])`<br>
 
-##### Imutabilidade
-Essa fução **retorna uma *nova variável* com novo valor**, ela **não** altera a anterior e simplesmente adicona o novo valor, garantindo que não ocorra erros no programa por alterar o valor de uma variável que outro programa pode acabar usando com o valor alterado (incorreto).
+### Imutabilidade
+Dentro do React usamos o conceito imutabilidade, isso significa que as funções `set` sempre **retornam uma *nova variável* com novo valor**, ela **não** altera a anterior e simplesmente adicona ou remove o novo valor, garantindo que não ocorra erros no programa por alterar o valor de uma variável que outro programa pode acabar usando com o valor alterado (incorreto) e isso é bem mais performático computacionalmente para o React.
 
 
 ### Programação Declarativa
-Quais as condições para ter o resultado final.<br><br>
+No react se constuma usar a programação declarativa.<br>
+Neste tipo de programação é informado quais as condições para ter o resultado final.<br>
+Não se altera um valor de uma variável diretamente, mas sim se define o valor dela para ser igual a um estado (useState) e quando necessário altera o valor do estado, assim independente de onde se alterar o valor do estado isso reflete no valor da variável, evitando erros futuros.<br><br>
+
+### Keys
+Quando executar um `.map` para renderizar algo na tela será necessário passar uma propriedade chamada `key` com um id único para cada item, normalmente um `id` recebido, **não utilizar *index* de um array** pois isso pode gerar demora na renderização.<br> 
+
+#### Renderização
+ 3 momentos em que um componente é renderizado:<br>
+ 1. Quando o estado (useStates) é alterado<br>
+ 2. Quando a propriedade é alterada<br>
+ 3. Quando o componente pai é alterado<br>
+
+ A utilização das keys facilita a renderização, o React analisa as keys e renderiza apenas o que ainda não foi renderizado
+
+ ### Passando 'valores' entre componentes
+ O **único** meio de passar valores, de ter comunicação entre os componentes é através das **propriedades**.<br><br>
+
+ #### Como usar um eventeo em um compenete para acinar comportamentos em outro componente
+ Passando uma função (que manipula) do componente que terá alteração para o componente que gerará o evento como propriedade.
