@@ -1,0 +1,132 @@
+.post{
+  padding: 2.5rem;
+  background: var(--gray-800);
+  border-radius: 8px;
+}
+/* Usar '+' faz com que este estilo seja aplicado somente quando
+o segundo elemento tem um anterior */
+.post + .post{
+  margin-top: 2rem;
+}
+
+.post > header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post > header time{
+  font-size: 0.875rem;
+  color: var(--gray-400);
+}
+
+.author{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.author > div > strong{
+  color: var(--green-100);
+  line-height: 1.6;
+}
+
+.author > div > span{
+  font-size: 0.875rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+}
+
+.content{
+  margin: 2rem 0;
+  color: var(--gray-300);
+  line-height: 1.6;
+  margin-top: 1.5rem;
+}
+
+.content p{
+  margin-top: 1rem;
+}
+
+.content a{
+  color:var(--green-500);
+  font-weight:bold;
+  text-decoration: none;
+}
+
+.content a:hover{
+  color:var(--green-300);
+}
+
+.commentForm{
+  display:block;
+  width:100%;
+  border-top: 1px solid var(--gray-400);
+  padding-top: 1.5rem;
+}
+
+.commentForm > strong{
+  line-height:1.6;
+  color:var(--gray-100);
+}
+
+
+.commentForm textarea{
+  width:100%;
+  background: var(--gray-900);
+  border: 0;
+  resize:none;
+  height: 6rem;
+  padding: 1rem;
+  border-radius: 8px;
+  color: var(--gray-100);
+  line-height:1.4;
+  margin-top: 1rem;
+}
+
+.commentForm footer {
+  visibility: hidden;
+  max-height: 0;
+}
+
+/* O focus-within faz uma verificação se a primeira classe informada ou algum elemento filho dela
+recebu foco e aplica a estilização para a segunda classe  */
+.commentForm:focus-within footer{
+  visibility: visible;
+  max-height: none;
+}
+
+
+
+
+.commentForm button[type=submit]{
+  padding:1rem 1.5rem;
+  margin-top:1rem;
+  border-radius:8px;
+  border:none;
+  background: var(--green-500);
+  color: var(--white);
+  font-weight:bold;
+  cursor:pointer;
+
+  transition: background-color 0.5s;
+}
+
+.commentForm button[type=submit]:not(:disabled):hover{
+  background:var(--green-300);
+}
+
+.commentForm button[type=submit]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.commentList{
+  margin-top: 2rem;
+}

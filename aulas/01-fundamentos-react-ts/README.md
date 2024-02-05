@@ -128,7 +128,7 @@ Essa função altera o valor do estado atual (useStates).<br><br>
 
 Pode ser passado *diretamente o novo valor* (alterar um comentário existente) ou caso queira simplesmente adicionar mais um valor a um array já existente (exemplo adicionar um novo commentário) pode ser usado desconstrução para pegar os valores antigos e retornar eles mais um ou caso queira deletar pode ser usado um filter (exemplo deletar um comentário).<br><br>
 
-##### Passando direto um novo valor: 
+##### Passando direto um novo valor:
 
 `setComments(5)`<br>
 Quando for necessário saber o valor antigo para retornar o novo (exemplo número de likes) o ideal é usar uma função para pegar o valor atual, pois devido ao método de processamente do React alterações simultaneas do mesmo estado dentro da mesma função não funcionam<br><br>
@@ -143,20 +143,20 @@ function handleLikeComment(){
       return state+1
     })
   }
-``` 
-Retorno com valor inicial 0: 2 
+```
+Retorno com valor inicial 0: 2
 <br>
 
 >Incorreto
-```js 
+```js
 function handleLikeComment(){
   setLikeCount(likeConter+1)
   setLikeCount(likeConter+1)
 }
-``` 
+```
 Retorno com valor inicial 0: 1<br><br>
 
-##### Adicionando um novo item a um array 
+##### Adicionando um novo item a um array
 
 Neste caso a função `set` recebe um array como parametro com duas posições.<br><br>
 
@@ -168,7 +168,7 @@ Exemplo: `setComments([...comments, comments.length+1])`<br><br>
 
 >Usado o `.length1` como exemplo, normalmnete se passa a variável com o novo valor, ou o próprio novo valor<br><br>
 
-Neste caso vamos passar um valor novo comentário aos existentes armazenados em um array. 
+Neste caso vamos passar um valor novo comentário aos existentes armazenados em um array.
 
 ```js
 const newCommentText='Usar o React é muito legal, principalmente porque tem esses carderno de estudo para consultar quando tenho dúvidas'
@@ -202,7 +202,7 @@ Não se altera um valor de uma variável diretamente, mas sim se define o valor 
 
 ### Keys
 
-Quando executar um `.map` para renderizar algo na tela será necessário passar uma propriedade chamada `key` com um id único para cada item, normalmente um `id` recebido, **não utilizar *index* de um array** pois isso pode gerar demora na renderização.<br> 
+Quando executar um `.map` para renderizar algo na tela será necessário passar uma propriedade chamada `key` com um id único para cada item, normalmente um `id` recebido, **não utilizar *index* de um array** pois isso pode gerar demora na renderização.<br>
 
 #### Renderização
 
@@ -223,4 +223,173 @@ Passando uma função (que manipula) do componente que terá alteração para o 
 
 ## Typescript
 
-Nasceu como um superset (conjunto de ferramentes) de JS, para usar tipagem forte nas variáves e auto-inteligencia para ajudar no desenvolvimento, atualmente alguns já consideram como uma linguaguem de programação.
+Nasceu como um superset (conjunto de ferramentes) de JS, para usar tipagem forte nas propriedades que as funcções recebem e auto-inteligencia para ajudar no desenvolvimento dentro do VS Code, atualmente alguns já consideram como uma linguaguem de programação.<br>
+
+>Quando o Typescript reclamar que uma propriedade pode não existir, mas que eu garanto manualmente que existte, pode usar ! depois da propriedade, exemplo:
+
+```js
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
+```
+
+### definindo o tipo de uma propriedade direto na função
+
+```js
+function teste (prop:string){}
+```
+
+### interface
+
+É usado quando se recebe mais de uma propriedade com desestruturação, podendo ser de tipos diferentes
+>Lembrando que o nome dentro da interface tem que ser igual ao nome da propriedade desestruturada dentro da função
+
+```js
+interface Props {
+  prop1: string;
+  prop2: boolean;
+  prop3: Date;
+
+}
+function teste ({prop1, prop2, prop3}:Props){}
+```
+
+### Definindo uma propriedade como opecional
+
+Para definir uma propriedade como opcional, podendo passar ou não para a função, pode usar o `?` após o nome da propriedade, exemplo:
+
+```js
+interface Props {
+  prop1: string;
+  prop2?: boolean;
+  prop3?: Date;
+
+}
+function teste ({prop1}:Props){}
+```
+
+### propriedades com propriedades dentro
+
+Quando passa como propriedade um objeto que um de seus parametros é outro objetos com seus próprios typos, pode se ter um interface dentro de outro, garantindo que foi definido todos o tipo de todas as propriedades.
+
+```js
+const propsTest={
+  name: 'Humberto',
+  idade: 2000-01-01,
+  endereco: {
+    temEndereco: true,
+    rua: 'avenida imaginária',
+    numero: 2024,
+    cidade: 'Curitiba'
+ }
+}
+
+interface usuario {
+  name: string,
+  idade: Date,
+  //Aqui defino a variavel endereço do tipo Endereco com todos os tipos de variaveis que tem dentro
+  //sem isso da erro
+  endereco: Endereco
+}
+
+interface Endereco {
+  temEndereco: boolean;
+  rua: string;
+  numero: number;
+  cidade: string;
+
+}
+function teste ({propsTeste:usuario}){}
+```
+
+### Recebendo array de propriedades
+
+Neste caso vamos usar `[]` após a propriedade.<br>
+Se o array estiver dentro do objeto recebido a interface recebe o `[]`, mas se a propriedade recebida for um array, de string por exemplo, pode ser passado direto na função o tipo e o `[]`.<br><br>
+
+Objeto com array dentro:
+
+```js
+const propsTest={text:['teste01','teste02','teste03']};
+
+interface PropsTest {
+  text: string[];
+}
+
+function imprime(props:PropsTeste){
+  props.text.forEach((e)=>console.log(e))
+}
+```
+
+Ou diretamente na função
+
+```js
+const propsTest=['teste01','teste02','teste03'];
+
+function imprime(props:string[]){
+  props.forEach((e)=>console.log(e))
+}
+```
+
+### Permitindo que os componentes criados possam receber propriedades não criadas manualmente, mas que são padrões de uma tag HTML
+
+Para um componete que *retornar apenas uma tag HTML*.
+
+#### Extendendo as propriedades de uma tag do HTML
+
+Para não ter que escrever manualmente todas as propriedades que um componente pode receber quando estamos utilizabdo do Typescrpt, podemos `extend` (extender) as propriedades de uma tag HTML.<br><br>
+
+Exemplo: Um componete `Avatar` que é basicamente uma imagem, normalmente teria que passar todas a propriedades que quero utilizar que são iguais a da tag img do HTML.<br><br>
+
+Neste caso para facilitar posso usar `extend` para extender todas as propriedade de uma tag HTML, primeiro preciso informar de qual tag as propriedades serão extendidas, neste casi sera de uma tag img, para isso informo o `ImgHTMLAttributes` que é a interface que tem todas as propriedades de uma tag img HTML e tem que passar *obrigatoriamente* dentro de `< >` o elemento que, neste caso como o elemento que esta sendo retornado dentro do componente é uma tag img, deve informar `HTMLImageElement`<br><br>
+
+Fazendo isso, pode chamar as propriedades nativas da tag (img neste caso) direto na função e usar sem dar erro.
+
+>Lembrando que extender as propriedades de uma tag HTML não impede de usar minhas proprias propriedades como a `hasBorder` no exemplo abaixo:
+
+```js
+interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement>{
+  hasBorder?: boolean;
+}
+
+function Avatar({ hasBorder=true, src, alt}:AvatarProps){
+  return (
+    <img
+      className={hasBorder? styles.avatarWithBorder : styles.avatar}
+      src={src}
+      alt={alt}
+    />
+  )
+}
+```
+
+> Necessário importar a interface no início do documento: `import { ImgHTMLAttributes } from 'react';`<br>
+
+Esse método deixa desestruturar as propriedades nos perametros da função, mas tem um defeito, tem que ser feito manualmente a chamada de toda propriedade, ou seja, apesar de ter extendido todas as propriedades da tag img HTML, se for passado uma propriedade na chamada do componente que eu não desestruturei manualmente ela não sera usada/renderizada.<br>
+Exemplo: A propriedade `title` no exemplo a seguir não será renderizada, apenas as src e alt pois na função Avatar do exemplo anterior não foi desestruturada a propriedade `title`.
+
+```js
+< Avatar src='http:teste-Renderiza'  alt='Renderiza' title='Não é renderizado/usado pois não foi desestruturado na função Avatar do exemplo anterior'/>
+```
+
+#### Facilitando a utilização de extenção de propriedades - Resolvendo defeito de chamar propriedades de forma manual
+
+Para facilitar a chamada de propriedades extendidas de uma tag HTML (que podem ou não ser passadas e que também podem ser muitas), podemos usar `...` que é um `rest operator`, que significa resto das propriedades.<br>
+Nesta caso foi desestrutorado a propriedade que eu criei (não é nativo da tag img) e foi pegado o resto das propriedades passadas (caso tenha) e guardadas dentro do objeto `props` que foi criado com: `...props`.<br><br>
+
+Essas propriedades guardadas dentro do objeto `props` podem ser chamadas todas de uma vez dentro do elemento usando `...` que neste momento dentro do elemento funcina como um `spread Operator`, que vai pegar todas as propriedades guardadas dentro do  objeto `props` e vai separa-las e exibi-las com: `{...props}`<br><br>
+
+Exemplo:
+
+```js
+function Avatar({ hasBorder=true, ...props }:AvatarProps){
+  return (
+    <img
+      className={hasBorder? styles.avatarWithBorder : styles.avatar}
+      {...props}
+    />
+  )
+}
+```
