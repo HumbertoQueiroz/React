@@ -30,6 +30,9 @@ Ao receber uma requisição a aplicação back-end vai acessar o banco de dados 
 
 *Ter node.js instalado*
 
+Documentação:
+[site Vite](https://vitejs.dev/guide/)
+
 Acessar através do terminal a pasta que o projeto vai ser guardado<br>
 Executar: `npm create vite@latest`<br>
 Depois: `y`<br>
